@@ -155,7 +155,7 @@ export default function Vault() {
         <div className="flex flex-col justify-center items-center mt-5 w-full max-w-3xl mx-auto px-6">
           <h1 className="text-2xl font-bold">Word Vault</h1>
           {user && (
-            <p className="mt-2 text-gray-600">
+            <p className="mt-2 text-gray-600 dark:text-gray-300">
               Welcome, {user.firstName}! Here are your saved words.
             </p>
           )}
@@ -169,6 +169,7 @@ export default function Vault() {
                 placeholder="search your words"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
+                className="dark:text-white"
               />
               <kbd className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none bg-gray-100 text-gray-500 text-xs px-1.5 py-0.5 rounded border">
                 ⌘K

@@ -183,7 +183,7 @@ export default function Home() {
 
   return (
     <SmoothFadeLayout>
-      <main className="flex flex-col items-center justify-center text-black h-screen overflow-hidden">
+      <main className="flex flex-col items-center justify-center md:text-black text-white h-screen overflow-hidden">
         <header className="flex justify-end items-center p-4 gap-4 h-16 w-full max-w-3xl mx-auto">
           <NavBar />
           <SignedOut>
@@ -201,7 +201,7 @@ export default function Home() {
         <div className="flex flex-col justify-center items-center w-full max-w-3xl mx-auto px-6">
           <Image src="/logo.png" alt="Lexit Logo" width={80} height={80} />
           {wordsCount && (
-            <p className="mt-1 text-xs text-gray-600">
+            <p className="mt-1 text-xs text-gray-600 dark:text-gray-300">
               Total {wordsCount} words
             </p>
           )}
@@ -213,8 +213,9 @@ export default function Home() {
                 placeholder="search words"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
+                className="dark:text-white"
               />
-              <kbd className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none bg-gray-100 text-gray-500 text-xs px-1.5 py-0.5 rounded border">
+              <kbd className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none bg-gray-100 dark:bg-gray-900 text-gray-500 dark:text-gray-500 text-xs px-1.5 py-0.5 rounded border">
                 ⌘K
               </kbd>
             </div>
@@ -285,14 +286,14 @@ export default function Home() {
         {/* Help Dialog */}
         {showHelp && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-            <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4 shadow-xl">
+            <div className="bg-white dark:bg-black rounded-lg p-6 max-w-md w-full mx-4 shadow-xl">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-lg font-semibold">Keyboard Shortcuts</h3>
+                <h3 className="text-lg font-semibold dark:text-white">Keyboard Shortcuts</h3>
                 <button
                   type="button"
                   onClick={() => setShowHelp(false)}
                   onKeyDown={(e) => e.key === "Enter" && setShowHelp(false)}
-                  className="text-gray-400 hover:text-gray-600"
+                  className="text-gray-400 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
                   aria-label="Close help dialog"
                 >
                   ✕
@@ -300,54 +301,54 @@ export default function Home() {
               </div>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between items-center">
-                  <span>Focus search</span>
+                  <span className="dark:text-white">Focus search</span>
                   <div className="flex gap-1">
-                    <kbd className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded border">
+                    <kbd className="bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 text-xs px-2 py-1 rounded border">
                       ⌘K
                     </kbd>
-                    <kbd className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded border">
+                    <kbd className="bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 text-xs px-2 py-1 rounded border">
                       /
                     </kbd>
                   </div>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span>Clear search</span>
-                  <kbd className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded border">
+                  <span className="dark:text-white">Clear search</span>
+                  <kbd className="bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-4000 text-xs px-2 py-1 rounded border">
                     Esc
                   </kbd>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span>Add new word</span>
+                  <span className="dark:text-white">Add new word</span>
                   <div className="flex gap-1">
-                    <kbd className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded border">
+                    <kbd className="bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 text-xs px-2 py-1 rounded border">
                       +
                     </kbd>
-                    <kbd className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded border">
+                    <kbd className="bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 text-xs px-2 py-1 rounded border">
                       A
                     </kbd>
                   </div>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span>Scroll through words</span>
+                  <span className="dark:text-white">Scroll through words</span>
                   <div className="flex gap-1">
-                    <kbd className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded border">
+                    <kbd className="bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 text-xs px-2 py-1 rounded border">
                       J
                     </kbd>
-                    <kbd className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded border">
+                    <kbd className="bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 text-xs px-2 py-1 rounded border">
                       K
                     </kbd>
                   </div>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span>Show this help</span>
-                  <kbd className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded border">
+                  <span className="dark:text-white">Show this help</span>
+                  <kbd className="bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 text-xs px-2 py-1 rounded border">
                     Shift + ?
                   </kbd>
                 </div>
               </div>
-              <div className="mt-4 pt-3 border-t text-xs text-gray-500 text-center">
+              <div className="mt-4 pt-3 border-t text-xs text-gray-500 dark:text-gray-400 text-center">
                 Press{" "}
-                <kbd className="bg-gray-100 text-gray-600 text-xs px-1 py-0.5 rounded border">
+                <kbd className="bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 text-xs px-1 py-0.5 rounded border">
                   Esc
                 </kbd>{" "}
                 or click outside to close
